@@ -7,7 +7,7 @@ import curtida from "./assets/curtida.png";
 
 <template>
   <header>
-    <h1>Vue</h1>
+    <h1><span>CodeLab</span>Vue</h1>
     <input type="text">
   </header>
   <main>
@@ -47,6 +47,29 @@ import curtida from "./assets/curtida.png";
 header{
   background-color:#17171A;
   color:#E07B67;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  input{
+    width: 40vw;
+    height: 3vh;
+    border-radius: 8px;
+    background-color: #202024;
+    border: 2px solid #252529;
+    color: #AFABB6;
+  }
+
+  h1{
+    margin-bottom: 1%;
+
+    span{
+      color: #FFFFFF;
+    }
+  }
+
 };
 
 </style>
