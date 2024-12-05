@@ -120,7 +120,10 @@ div{
   font-weight: 500;
   color: #E07B67;
   font-size: 0.8rem;
-  cursor: pointer;
+
+  img{
+    cursor: pointer;
+  }
 }
 
 h3{
