@@ -5,15 +5,17 @@ import coracao from "./assets/coracao.png";
 import curtida from "./assets/curtida.png";
 import {ref} from "vue";
 
-const imagens = ref([
-  {src: coracao, isLiked: false},
-  {src: coracao, isLiked: false},
-  {src: coracao, isLiked: false}
-]);
+const imagem = ref([coracao,coracao,coracao]);
 
-function like(index) {
-  imagens.value[index].isLiked = !imagens.value[index].isLiked;
-  imagens.value[index].src = imagens.value[index].isLiked ? curtida : coracao;
+const coracaoNaoCurtido = coracao;
+const coracaoCurtido = curtida;
+
+const alternarImagem = (index) => {
+  if(imagem.value[index] === coracaoNaoCurtido){
+    imagem.value[index] = coracaoCurtido    
+  }else{
+    imagem.value[index] = coracaoNaoCurtido
+  }
 }
 
 </script>
@@ -27,9 +29,9 @@ function like(index) {
     <section>
       <div>
         <p>17 de ago, 2024</p>
-        <!-- diretivas -->
+        <!-- diretivas são atribututos HTML especiais do Vue-->
         <!-- para renderizar um dado da lógica (tudo que estiver detro do script), se for em uma tag (ex. tag p) usaremos as {{  }}. Como src, href é um atributo usaremos o v-bind, : é o atalho do v-bind -->
-        <img :src="imagens[0].src" alt="coração para dar 'curtida' na publicação" @click="like(0)">
+        <img :src="imagem[0]" alt="coração para dar 'curtida' na publicação" @click="alternarImagem(0)">
       </div>
       <h3>O que é linguagem de programação? Conheça as principais</h3>
       <p class="texto">Uma das mais populares vertentes da tecnologia da informação, a área de programação segue tendo muita demanda de trabalho justamente pela velocidade com que dispositivos tecnológicos vêm avançando.</p>
@@ -37,7 +39,7 @@ function like(index) {
     <section>
       <div>
         <p>12 de jul, 2024</p>
-        <img :src="imagens[1].src" alt="coração para dar 'curtida' na publicação" @click="like(1)">
+        <img :src="imagem[1]" alt="coração para dar 'curtida' na publicação" @click="alternarImagem(1)">
       </div>
       <h3>GitHub agora permite fazer login sem precisar de senha</h3>
       <p class="texto">O GitHub anunciou nesta quarta-feira (12) o acesso a partir das passkeys, método de autenticação sem senhas. A novidade está disponível em uma versão beta pública e pode substituir a autenticação em dois fatores.</p>
@@ -45,7 +47,7 @@ function like(index) {
     <section>
       <div>
         <p>21 de jun, 2024</p>
-        <img :src="imagens[2].src" alt="coração para dar 'curtida' na publicação" @click="like(2)">
+        <img :src="imagem[2]" alt="coração para dar 'curtida' na publicação" @click="alternarImagem(2)">
       </div>
       <h3>Por que os hiperlinks são azuis em sua maioria?</h3>
       <p class="texto">Quem navega na internet, certamente já percebeu que ela conta com diversos recursos para tornar a nossa vida mais fácil. Entre essas opções podemos mencionar os hiperlinks - uma palavra ou termo clicável que direciona o leitor.</p>
